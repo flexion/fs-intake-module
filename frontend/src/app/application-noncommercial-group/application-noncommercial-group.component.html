@@ -152,6 +152,7 @@
       <fieldset>
         <input id="add-secondary-permit-holder" name="add-secondary-permit-holder" type="checkbox" [(ngModel)]="viewSecondaryPermitHolder" />
         <label class="usa-input" for="add-secondary-permit-holder">Add a secondary permit holder</label>
+        <span>If there is another person that would be a useful contact or significant user of the permit, please add their information.</span>
       </fieldset>
 
       <fieldset *ngIf="viewSecondaryPermitHolder">

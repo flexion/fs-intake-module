@@ -23,17 +23,23 @@ export class ActivityDescriptionComponent implements OnInit {
 
   ngOnInit() {
     const activityDescription = this.formBuilder.group({
-      numberServiceDaysRequested: [],
-      numberOfTrips: [],
-      locationDescription: [],
-      servicesProvided: [],
-      audienceDescription: [],
-      listOfGovernmentFacilities: [],
-      listOfTemporaryImprovements: [],
-      statementOfMotorizedEquipment: [],
-      statementOfTransportationOfLivestock: [],
-      statementOfAssignedSite: [],
-      descriptionOfCleanupAndRestoration: []
+      numberServiceDaysRequested: ['', [Validators.required]],
+      numberOfTrips: ['', [Validators.required]],
+      partySize: ['', [Validators.required]],
+      locationDescription: ['', [Validators.required]],
+      servicesProvided: ['', [Validators.required]],
+      audienceDescription: ['', [Validators.required]],
+      needGovernmentFacilities: [false],
+      listOfGovernmentFacilities: ['', [Validators.required]],
+      needTemporaryImprovements: [false],
+      listOfTemporaryImprovements: ['', [Validators.required]],
+      haveMotorizedEquipment: [false],
+      statementOfMotorizedEquipment: ['', [Validators.required]],
+      haveLivestock: [false],
+      statementOfTransportationOfLivestock: ['', [Validators.required]],
+      needAssignedSite: [false],
+      statementOfAssignedSite: ['', [Validators.required]],
+      descriptionOfCleanupAndRestoration: ['', [Validators.required]]
     });
     this.parentForm.addControl('activityDescription', activityDescription);
   }

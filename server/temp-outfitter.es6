@@ -1,12 +1,13 @@
 'use strict';
 
+let ApplicationFile = require('./models/application-files.es6');
 let AWS = require('aws-sdk');
 let multer = require('multer');
 let multerS3 = require('multer-s3');
-let ApplicationFile = require('./models/application-files.es6');
 let TempOutfitterApplication = require('./models/tempoutfitter-application.es6');
-let vcapServices = require('./vcap-services.es6');
+// let util = require('./util.es6');
 let validator = require('./validation.es6');
+let vcapServices = require('./vcap-services.es6');
 
 let tempOutfitterFuncs = {};
 
@@ -77,11 +78,11 @@ tempOutfitterFuncs.createTempOutfitterApp = (req, res) => {
       applicantInfoEveningPhoneNumber: req.body.applicantInfo.eveningPhone ? req.body.applicantInfo.eveningPhone.number : null,
       applicantInfoEveningPhoneExtension: req.body.applicantInfo.eveningPhone ? req.body.applicantInfo.eveningPhone.extension : null,
       applicantInfoEmailAddress: req.body.applicantInfo.emailAddress,
-      applicantInfoPrimaryMailingAddress: req.body.applicantInfo.primaryAddress ? req.body.applicantInfo.primaryAddress.mailingAddress : null,
-      applicantInfoPrimaryMailingAddress2: req.body.applicantInfo.primaryAddress ? req.body.applicantInfo.primaryAddress.mailingAddress2 : null,
-      applicantInfoPrimaryMailingCity: req.body.applicantInfo.primaryAddress ? req.body.applicantInfo.primaryAddress.mailingCity : null,
-      applicantInfoPrimaryMailingState: req.body.applicantInfo.primaryAddress ? req.body.applicantInfo.primaryAddress.mailingState : null,
-      applicantInfoPrimaryMailingZIP: req.body.applicantInfo.primaryAddress ? req.body.applicantInfo.primaryAddress.mailingZIP : null,
+      applicantInfoPrimaryMailingAddress: req.body.applicantInfo.primaryAddress.mailingAddress,
+      applicantInfoPrimaryMailingAddress2: req.body.applicantInfo.primaryAddress.mailingAddress2,
+      applicantInfoPrimaryMailingCity: req.body.applicantInfo.primaryAddress.mailingCity,
+      applicantInfoPrimaryMailingState: req.body.applicantInfo.primaryAddress.mailingState,
+      applicantInfoPrimaryMailingZIP: req.body.applicantInfo.primaryAddress.mailingZIP,
       applicantInfoOrganizationName: req.body.applicantInfo.organizationName,
       applicantInfoWebsite: req.body.applicantInfo.website,
       applicantInfoOrgType: req.body.applicantInfo.orgType,
@@ -115,10 +116,24 @@ tempOutfitterFuncs.createTempOutfitterApp = (req, res) => {
       req.body['applicationId'] = tempOutfitterApp.applicationId;
       req.body['appControlNumber'] = tempOutfitterApp.appControlNumber;
       res.status(201).json(req.body);
-    }).error((err) => {
+    }).catch((err) => {
       res.status(500).json(err);
     });
   }
+};
+
+tempOutfitterFuncs.getApp = (req, res) => {
+  TempOutfitterApplication.findOne({ 'where': {app_control_number: req.params.id}})
+    .then(app => {
+      if(app) {
+        // TODO: build temp outfitter translator
+        // res.status(200).json(util.translateFromDatabaseToJSON(app));
+        res.status(200).json('not yet implemented');
+      } else {
+        res.status(404).send();
+      }
+    })
+    .catch(error => res.status(400).json(error.message));
 };
 
 module.exports = tempOutfitterFuncs;

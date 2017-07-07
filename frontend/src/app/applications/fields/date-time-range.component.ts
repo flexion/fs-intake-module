@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, EventEmitter, Output  } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApplicationFieldsService } from '../_services/application-fields.service';
+import { Hours, Minutes } from '../../_models/constants';
 import * as moment from 'moment/moment';
 
 @Component({
@@ -21,8 +22,8 @@ export class DateTimeRangeComponent implements OnInit {
 
   dateTimeRange: any;
 
-  hours = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-  minutes = ['00', '15', '30', '45'];
+  hours = Hours;
+  minutes = Minutes;
 
   @Output() updateDateStatus: EventEmitter<any> = new EventEmitter<any>();
 
@@ -86,6 +87,10 @@ export class DateTimeRangeComponent implements OnInit {
     }
   }
 
+  parseDateTime(year, month, day, hour, minutes, period) {
+    return moment(`${year}-${month}-${day} ${hour}:${minutes} ${period}`, 'YYYY-MM-DD HH:mm A');
+  }
+
   dateTimeRangeValidator(values) {
     if (
       values.startMonth &&
@@ -101,35 +106,12 @@ export class DateTimeRangeComponent implements OnInit {
       values.endMinutes &&
       values.endPeriod
     ) {
-      const inputFormat = 'YYYY-MM-DD HH:mm A';
+
       const outputFormat = 'YYYY-MM-DDTHH:mm:ss';
       const today = moment();
-      const startDateTime = moment(
-        values.startYear +
-        '-' +
-        values.startMonth +
-        '-' +
-        values.startDay +
-        ' ' +
-        values.startHour +
-        ':' +
-        values.startMinutes +
-        ' ' +
-        values.startPeriod
-      , inputFormat);
-      const endDateTime = moment(
-        values.endYear +
-        '-' +
-        values.endMonth +
-        '-' +
-        values.endDay +
-        ' ' +
-        values.endHour +
-        ':' +
-        values.endMinutes +
-        ' ' +
-        values.endPeriod
-      , inputFormat);
+
+      const startDateTime = this.parseDateTime(values.startYear, values.startMonth, values.startDay, values.startHour, values.startMinutes, values.startPeriod);
+      const endDateTime = this.parseDateTime(values.endYear, values.endMonth, values.endDay, values.endHour, values.endMinutes, values.endPeriod);
       this.parentForm.patchValue({ dateTimeRange: { startDateTime: startDateTime.format(outputFormat) + 'Z' }});
       this.parentForm.patchValue({ dateTimeRange: { endDateTime: endDateTime.format(outputFormat) + 'Z' }});
       this.dateStatus.startDateTimeValid = startDateTime.isValid();

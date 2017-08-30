@@ -507,20 +507,6 @@ describe('Branch tests', () => {
       .expect(201, done);
   });
 
-  it('creates a noncommercial app with too long website', done => {
-    let testData = noncommercialTestData.singlePermitHolder.create();
-    testData.applicantInfo.website =
-      'http:thisisasuperduperlongurlthatissolongitwillbreakthingsandthrowanerrorhopefullyreallythisneedstobeatleast256charactersinlengthsoletsjustcopypasteanddoublethelengthhttp:thisisasuperduperlongurlthatissolongitwillbreakthingsandthrowanerrorhopefullyreallythisneedstobeatleast256charactersinlengthsoletsjustcopypasteanddoublethelength';
-
-    request(server)
-      .post(testURL)
-      .set('Accept', 'application/json')
-      .set('Authorization', auth)
-      .send(testData)
-      .expect('Content-Type', /json/)
-      .expect(500, done);
-  });
-
   it('updates a noncommercial app successfully with other than accept status', done => {
     nock(vcap.middleLayerBaseUrl).post('/auth').reply(200, { token: 'auth-token' });
 

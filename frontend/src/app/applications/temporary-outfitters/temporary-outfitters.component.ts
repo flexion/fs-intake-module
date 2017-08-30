@@ -56,7 +56,6 @@ export class TemporaryOutfittersComponent implements DoCheck {
         primaryFirstName: ['', [Validators.required, alphanumericValidator()]],
         primaryLastName: ['', [Validators.required, alphanumericValidator()]],
         orgType: ['', [Validators.required, alphanumericValidator()]],
-        website: ['', [Validators.pattern('https?://.+')]],
         goodStandingEvidence: ['']
       }),
       guideIdentification: [''],

@@ -97,7 +97,6 @@ describe('Apply for a noncommercial group use permit', () => {
     element(by.id('add-additional-phone-label')).click();
     element(by.id('evening-phone')).sendKeys('1111111111');
     element(by.id('evening-ext')).sendKeys('1111');
-    element(by.id('website')).sendKeys('http://test.com');
     element(by.id('primary-permit-holder-first-name')).sendKeys('Micky');
     element(by.id('primary-permit-holder-last-name')).sendKeys('Watson');
     element(by.id('primary-permit-holder-same-address-label')).click();

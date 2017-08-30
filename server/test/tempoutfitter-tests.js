@@ -61,17 +61,6 @@ describe('temp outfitter server tests', () => {
       .expect(201, done);
   });
 
-  it('creates a temp outfitter app with too long website, 500 error', done => {
-    let testData = tempOutfitterTestData.basicTempOutfitter.create();
-    testData.applicantInfo.website =
-      'http:thisisasuperduperlongurlthatissolongitwillbreakthingsandthrowanerrorhopefullyreallythisneedstobeatleast256charactersinlengthsoletsjustcopypasteanddoublethelengthhttp:thisisasuperduperlongurlthatissolongitwillbreakthingsandthrowanerrorhopefullyreallythisneedstobeatleast256charactersinlengthsoletsjustcopypasteanddoublethelength';
-    request(server)
-      .post(url)
-      .set('Accept', 'application/json')
-      .send(testData)
-      .expect('Content-Type', /json/)
-      .expect(500, done);
-  });
 
   // keep these as a starting point to get the s3 mocking working
   // it('should save a file to mock s3 and the db', (done) => {

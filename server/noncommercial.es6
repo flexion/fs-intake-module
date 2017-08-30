@@ -74,7 +74,6 @@ let translateFromClientToDatabase = input => {
     applicantInfoSecondaryMailingZIP: input.applicantInfo.secondaryAddress
       ? input.applicantInfo.secondaryAddress.mailingZIP
       : null,
-    applicantInfoWebsite: input.applicantInfo.website,
     authorizingOfficerName: input.authorizingOfficerName,
     authorizingOfficerTitle: input.authorizingOfficerTitle,
     district: input.district,
@@ -135,8 +134,7 @@ let translateFromDatabaseToClient = input => {
       secondaryFirstName: input.applicantInfoSecondaryFirstName || undefined,
       secondaryLastName: input.applicantInfoSecondaryLastName || undefined,
       emailAddress: input.applicantInfoEmailAddress,
-      organizationName: input.applicantInfoOrganizationName || undefined,
-      website: input.applicantInfoWebsite || undefined
+      organizationName: input.applicantInfoOrganizationName || undefined
     },
     noncommercialFields: {
       activityDescription: input.noncommercialFieldsActivityDescription,
@@ -189,7 +187,6 @@ let translateFromIntakeToMiddleLayer = input => {
       },
       emailAddress: input.applicantInfoEmailAddress,
       organizationName: input.applicantInfoOrganizationName || undefined,
-      website: input.applicantInfoWebsite || undefined,
       orgType: input.applicantInfoOrgType
     },
     type: input.type,

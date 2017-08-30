@@ -30,10 +30,6 @@
 
         <app-email [applicantInfo]="applicationForm.controls.applicantInfo"></app-email>
         <app-phone-number [parentForm]="applicationForm.get('applicantInfo')" name="Phone number"></app-phone-number>
-
-        <div *ngIf="applicationForm.get('applicantInfo.orgType').value === 'Corporation'">
-          <app-website [applicantInfo]="applicationForm.controls.applicantInfo"></app-website>
-        </div>
       </fieldset>
 
       <fieldset *ngIf="applicationForm.get('applicantInfo.orgType').value === 'Corporation'">

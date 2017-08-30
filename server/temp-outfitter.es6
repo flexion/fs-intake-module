@@ -47,7 +47,6 @@ let translateFromClientToDatabase = input => {
     applicantInfoPrimaryMailingCity: input.applicantInfo.primaryAddress.mailingCity,
     applicantInfoPrimaryMailingState: input.applicantInfo.primaryAddress.mailingState,
     applicantInfoPrimaryMailingZIP: input.applicantInfo.primaryAddress.mailingZIP,
-    applicantInfoWebsite: input.applicantInfo.website,
     authorizingOfficerName: input.authorizingOfficerName,
     authorizingOfficerTitle: input.authorizingOfficerTitle,
     district: input.district,
@@ -118,7 +117,6 @@ let translateFromDatabaseToClient = input => {
         mailingState: input.applicantInfoPrimaryMailingState,
         mailingZIP: input.applicantInfoPrimaryMailingZIP
       },
-      website: input.applicantInfoWebsite,
       organizationName: input.applicantInfoOrganizationName,
       orgType: input.applicantInfoOrgType,
       dayPhone: {
@@ -224,7 +222,6 @@ let translateFromIntakeToMiddleLayer = application => {
       mailingState: application.applicantInfoPrimaryMailingState,
       mailingZIP: application.applicantInfoPrimaryMailingZIP,
       organizationName: application.applicantInfoOrganizationName,
-      website: application.applicantInfoWebsite,
       orgType: application.applicantInfoOrgType
     },
     type: 'tempOutfitters',

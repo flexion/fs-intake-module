@@ -112,7 +112,6 @@ describe('Apply for a temp outfitters permit', () => {
     element(by.id('fax')).sendKeys('3333333333');
     element(by.id('fax-extension')).sendKeys('');
     element(by.id('email')).sendKeys('test@test.com');
-    element(by.id('website')).sendKeys('http://test.com');
     element(by.id('llc-label')).click();
     element(by.id('individual-label')).click();
     element(by.id('individual-citizen-label')).click();

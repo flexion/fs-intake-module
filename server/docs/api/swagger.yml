@@ -270,8 +270,6 @@ definitions:
         $ref: '#/definitions/address'
       organizationName:
         type: "string"
-      website:
-        type: "string"
       orgType:
         type: "string"
   tempOutfitterApplicantInfo:

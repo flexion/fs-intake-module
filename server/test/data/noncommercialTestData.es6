@@ -159,8 +159,7 @@ module.exports = {
       primaryFirstName: 'Luke',
       primaryLastName: 'Skywalker',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',
@@ -216,8 +215,7 @@ module.exports = {
       secondaryFirstName: 'Han',
       secondaryLastName: 'Solo',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',
@@ -408,8 +406,7 @@ module.exports = {
       primaryFirstName: 'Luke',
       primaryLastName: 'Skywalker',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',
@@ -451,8 +448,7 @@ module.exports = {
       primaryFirstName: 'Luke',
       primaryLastName: 'Skywalker',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',
@@ -508,8 +504,7 @@ module.exports = {
       secondaryFirstName: 'Han',
       secondaryLastName: 'Solo',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',
@@ -761,8 +756,7 @@ module.exports = {
       primaryFirstName: 'Luke',
       primaryLastName: 'Skywalker',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',
@@ -804,8 +798,7 @@ module.exports = {
       primaryFirstName: 'Luke',
       primaryLastName: 'Skywalker',
       emailAddress: 'luke@skywalker.com',
-      organizationName: 'Rebel Alliance',
-      website: 'http://www.starwars.com/'
+      organizationName: 'Rebel Alliance'
     },
     noncommercialFields: {
       locationDescription: 'In the hills',

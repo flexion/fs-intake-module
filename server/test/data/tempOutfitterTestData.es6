@@ -16,7 +16,7 @@ module.exports = {
       organizationName: '',
       primaryFirstName: 'Theodore',
       primaryLastName: 'Twombly',
-      orgType: 'Person'
+      orgType: 'Person',
       primaryAddress: {
         mailingAddress: '2345 Central Street',
         mailingAddress2: '',

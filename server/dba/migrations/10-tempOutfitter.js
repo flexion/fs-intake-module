@@ -39,7 +39,6 @@ module.exports = {
       applicantInfoSecondaryMailingState: { type: Sequelize.STRING(2), field: 'appl_info_sec_mailing_state' },
       applicantInfoSecondaryMailingZIP: { type: Sequelize.STRING(5), field: 'appl_info_sec_mailing_zip' },
       applicantInfoOrganizationName: { type: Sequelize.STRING, field: 'applicant_info_org_name' },
-      applicantInfoWebsite: { type: Sequelize.STRING, field: 'applicant_info_website' },
       applicantInfoOrgType: { type: Sequelize.STRING, field: 'applicant_info_org_type', allowNull: false },
       applicantInfoSecondaryFirstName: { type: Sequelize.STRING, field: 'applicant_info_sec_first_name' },
       applicantInfoSecondaryLastName: { type: Sequelize.STRING, field: 'applicant_info_sec_last_name' },

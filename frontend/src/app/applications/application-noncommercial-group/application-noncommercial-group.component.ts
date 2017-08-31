@@ -58,7 +58,6 @@ export class ApplicationNoncommercialGroupComponent implements OnInit {
         secondaryAddressSameAsPrimary: [true],
         secondaryFirstName: ['', [alphanumericValidator()]],
         secondaryLastName: ['', [alphanumericValidator()]],
-        website: ['', [alphanumericValidator()]]
       })
     });
 

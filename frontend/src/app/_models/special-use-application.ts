@@ -40,7 +40,6 @@ export class ApplicantInfo {
   secondaryAddress: Address;
   secondaryFirstName: string;
   secondaryLastName: string;
-  website: string;
   constructor() {
     this.dayPhone = new Phone();
     this.eveningPhone = new Phone();

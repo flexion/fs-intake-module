@@ -140,10 +140,6 @@ module.exports = sequelize.define(
       type: Sequelize.STRING,
       field: 'applicant_info_org_name'
     },
-    applicantInfoWebsite: {
-      type: Sequelize.STRING,
-      field: 'applicant_info_website'
-    },
     applicantInfoOrgType: {
       type: Sequelize.STRING,
       field: 'applicant_info_org_type',

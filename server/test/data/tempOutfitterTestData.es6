@@ -17,7 +17,6 @@ module.exports = {
       primaryFirstName: 'Theodore',
       primaryLastName: 'Twombly',
       orgType: 'Person',
-      website: 'http://twombly.com',
       primaryAddress: {
         mailingAddress: '2345 Central Street',
         mailingAddress2: '',

@@ -24,7 +24,6 @@ import { SmallBusinessComponent } from './fields/small-business.component';
 import { SharedModule } from './../_shared/shared.module';
 import { TemporaryOutfittersComponent } from './temporary-outfitters/temporary-outfitters.component';
 import { TempOutfitterLeftNavComponent } from './temporary-outfitters/temp-outfitter-left-nav.component';
-import { WebsiteComponent } from './fields/website.component';
 
 import { InViewportModule } from 'ng-in-viewport';
 import 'intersection-observer';
@@ -50,8 +49,7 @@ import 'intersection-observer';
     PhoneNumberComponent,
     SmallBusinessComponent,
     TemporaryOutfittersComponent,
-    TempOutfitterLeftNavComponent,
-    WebsiteComponent
+    TempOutfitterLeftNavComponent
   ],
   exports: [
     ActivityDescriptionComponent,
@@ -73,8 +71,7 @@ import 'intersection-observer';
     PhoneNumberComponent,
     SmallBusinessComponent,
     TemporaryOutfittersComponent,
-    TempOutfitterLeftNavComponent,
-    WebsiteComponent
+    TempOutfitterLeftNavComponent
   ],
   imports: [FileUploadModule, SharedModule, InViewportModule.forRoot()],
   providers: [ApplicationFieldsService]

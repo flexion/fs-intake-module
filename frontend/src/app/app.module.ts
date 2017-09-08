@@ -11,7 +11,7 @@ import { ApplicationService } from './_services/application.service';
 import { ApplicationsModule } from './applications/applications.module';
 import { ApplicationSubmittedComponent } from './applications/application-submitted/application-submitted.component';
 import { AuthenticatedComponent } from './login/authenticated.component';
-import { AuthGuard } from './_services/auth.guard';
+import { AuthGuardService } from './_services/auth-guard.service';
 import { AuthenticationService } from './_services/authentication.service';
 import { Base64 } from './_pipes/base64.pipe';
 import { DaysToOrDate } from './_pipes/days-to-or-date.pipe';
@@ -25,6 +25,7 @@ import { PermitApplicationViewComponent } from './admin/permit-application-view/
 import { SharedModule } from './_shared/shared.module';
 import { SortArray } from './_pipes/sort-array.pipe';
 import { SpacesToDashesPipe } from './_pipes/spaces-to-dashes.pipe';
+import { StatusComponent } from './status/status.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { TempOutfitterDetailsComponent } from './admin/permit-application-view/temp-outfitter-details.component';
 import { TitleDirective } from './_directives/title.directive';
@@ -45,13 +46,14 @@ import { UsaBannerComponent } from './usa-banner/usa-banner.component';
     PermitApplicationViewComponent,
     SortArray,
     SpacesToDashesPipe,
+    StatusComponent,
     StyleGuideComponent,
     TempOutfitterDetailsComponent,
     TitleDirective,
     UsaBannerComponent
   ],
   imports: [AppRoutingModule, ApplicationsModule, BrowserModule, HttpModule, SharedModule],
-  providers: [AlertService, ApplicationService, AuthGuard, AuthenticationService],
+  providers: [AlertService, ApplicationService, AuthGuardService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

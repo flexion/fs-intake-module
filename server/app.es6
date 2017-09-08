@@ -1,6 +1,7 @@
 'use strict';
 
 let bodyParser = require('body-parser');
+let eAuth = require('./auth/usda-eauth.es6');
 let express = require('express');
 let helmet = require('helmet');
 let loginGov = require('./auth/login-gov.es6');
@@ -56,7 +57,11 @@ let accessControl = (req, res, next) => {
     res.set('Access-Control-Allow-Origin', vcapServices.intakeClientBaseUrl);
     res.set('Access-Control-Allow-Credentials', true);
   }
-  next();
+  if (!req.user) {
+    res.status(401).send({ errors: ['Unauthorized'] });
+  } else {
+    next();
+  }
 };
 
 app.options('*', accessControl, (req, res) => {
@@ -67,6 +72,17 @@ app.options('*', accessControl, (req, res) => {
 
 /* Serve static documentation pages. */
 app.use('/docs/api', express.static('docs/api'));
+
+/* Universal passport user */
+app.get('/auth/user', accessControl, (req, res) => {
+  res.send(req.user);
+});
+
+/* Universal passport logout */
+app.get('/auth/logout', accessControl, (req, res) => {
+  req.logout();
+  res.send();
+});
 
 /** Get a single noncommercial permit application. */
 app.get('/permits/applications/special-uses/noncommercial/:id', accessControl, noncommercial.getOne);
@@ -106,6 +122,7 @@ app.get('/uptime', (req, res) => {
 });
 
 app.use(loginGov.router);
+app.use(eAuth.router);
 
 /* Start the server. */
 app.listen(8080);

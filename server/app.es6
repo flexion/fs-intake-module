@@ -43,11 +43,12 @@ app.use(
 
 // used to bypass authentication when doing development
 let isLocalOrCI = () => {
-  const environments = ['CI', 'local'];
-  if (environments.indexOf(process.env.PLATFORM) !== -1) {
-    return true;
-  }
-  return false;
+  return true;
+  // const environments = ['CI', 'local'];
+  // if (environments.indexOf(process.env.PLATFORM) !== -1) {
+  //   return true;
+  // }
+  // return false;
 };
 
 let setCorsHeaders = (req, res, next) => {

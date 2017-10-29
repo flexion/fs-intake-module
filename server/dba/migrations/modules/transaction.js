@@ -1,12 +1,10 @@
 'use strict';
 
-let Promise = require('bluebird');
-
 let doTransaction = (tableName, queryInterface, operations) => {
   return queryInterface.sequelize.transaction(trx => {
     let moreOperations = addPreparations(tableName, operations);
 
-    return Promise.each(moreOperations, operation => {
+    return Promise.all(moreOperations, operation => {
       operation.transaction = trx;
       switch (operation.operation) {
         case 'add': {

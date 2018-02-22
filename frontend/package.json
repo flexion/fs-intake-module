@@ -6,7 +6,8 @@
     "build": "ng build",
     "dist-staging": "ng build --prod --env=staging --aot=false",
     "dist-prod": "ng build --prod --env=prod --aot=false",
-    "docs": "yarn run typedoc -- --out ./src/assets/typedoc --exclude '**/*.spec.ts' ./src/ --module commonjs",
+    "docs":
+      "yarn run typedoc -- --out ./src/assets/typedoc --exclude '**/*.spec.ts' ./src/ --module commonjs",
     "e2e:ci": "ng e2e --port=4200 --watch=false --progress=false",
     "e2e": "ng e2e --port=4200",
     "lint": "ng lint",
@@ -14,7 +15,8 @@
     "pa11y": "pa11y-ci",
     "snyk-test": "snyk test",
     "start": "ng serve",
-    "test:ci": "ng test --single-run=true --watch=false --progress=false --code-coverage",
+    "test:ci":
+      "ng test --single-run=true --watch=false --progress=false --code-coverage",
     "test": "ng test",
     "typedoc": "typedoc",
     "update-version": "npm version patch && node ./replace.build.js"

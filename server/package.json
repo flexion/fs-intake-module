@@ -55,7 +55,8 @@
   "scripts": {
     "coverage":
       "nyc --check-coverage --lines 90 --reporter=html --reporter=text --reporter=lcov --extension .es6 mocha ./test/**/*.es6 ./test/*.es6",
-    "dev": "yarn; sequelize db:migrate; nodemon --harmony_default_parameters ./src/app.es6",
+    "dev":
+      "yarn; sequelize db:migrate; nodemon --harmony_default_parameters ./src/app.es6",
     "lint":
       "eslint ./app.es6 ./models/noncommercial-application.es6 ./util.es6 ./test/noncommercial.js ./middlelayer-interaction.es6 ./test/test-util.js ./test/middlelayer-unit.js ./test/test-validate.js ./vcap-services.es6 ./temp-outfitter.es6 ./test/tempoutfitter-tests.js ./noncommercial.es6 ./application-general.es6",
     "migrate": "sequelize db:migrate",
@@ -69,7 +70,7 @@
     "undoLastMigrate": "sequelize db:migrate:undo"
   },
   "engines": {
-    "node": "^6.10.3"
+    "node": "^8.9.0"
   },
   "nyc": {
     "extension": [".es6"]

@@ -33,8 +33,7 @@
     "tough-cookie": "^2.3.3",
     "xml-encryption": "^0.11.0",
     "micromatch": "^3.0.0",
-    "request": "^2.83.0",
-    "hoek": "2.16.4"
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "blob": "^0.0.4",

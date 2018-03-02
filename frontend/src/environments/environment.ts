@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/',
+  apiUrl: 'http://bruth-fs-intake-535465166.us-east-2.elb.amazonaws.com:81/',
   buildDate: new Date(),
-  version: 'DEV'
+  version: 'DEV',
 };

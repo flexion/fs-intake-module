@@ -1,0 +1,43 @@
+version: "2"
+services:
+  fs-intake-postgres:
+    mem_limit: 524288k
+    image: postgres:9.6.3
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/bruth-fs-intake-postgres
+        awslogs-region: us-east-2
+  fs-intake-server:
+    mem_limit: 131072k
+    image: 733393250814.dkr.ecr.us-east-2.amazonaws.com/bruth-fs-intake-server:latest
+    ports:
+      - "8080:8080"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/bruth-fs-intake-server
+        awslogs-region: us-east-2
+    links:
+      - fs-intake-postgres
+  fs-intake-frontend:
+    mem_limit: 1048576k
+    image: 733393250814.dkr.ecr.us-east-2.amazonaws.com/bruth-fs-intake-frontend:latest
+    ports:
+      - "4200:4200"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/bruth-fs-intake-frontend
+        awslogs-region: us-east-2
+  adminer:
+    mem_limit: 131072k
+    image: adminer
+    ports:
+      - "8081:8080"
+    links:
+      - fs-intake-postgres
